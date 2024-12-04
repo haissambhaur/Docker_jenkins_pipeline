@@ -5,7 +5,7 @@ pipeline {
             steps{
                 sh 'pwd'
                 sh 'ls -la'
-                sh '#!/bin/bash\ncd Travelling_Managment'
+                sh 'cd Travelling_Managment/'
                 sh 'pwd'
             }
         }
