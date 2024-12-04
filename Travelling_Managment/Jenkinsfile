@@ -11,8 +11,8 @@ pipeline {
             steps {
                 withEnv(['PATH+EXTRA=/usr/local/bin']) {
                     sh 'docker-compose --version'
-                    //sh 'docker-compose build'
-                    //sh 'docker-compose up'
+                    sh 'docker-compose build'
+                    sh 'docker-compose up'
                 }
             }
         }
