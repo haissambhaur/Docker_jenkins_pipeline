@@ -5,6 +5,14 @@ pipeline {
             steps {
                 sh 'docker --version'
             }
+            
+            steps {
+                sh 'docker-compose build'
+            }
+            
+            steps {
+                sh 'docker-compose up'
+            }
         }
     }
 }
