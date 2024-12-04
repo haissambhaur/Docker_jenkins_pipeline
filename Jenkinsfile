@@ -1,12 +1,14 @@
 pipeline {
     agent any 
     stages {
-        stage('Check docker-compose version') {
+        stage('check path') {
             steps{
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'cd Travelling_Managment/'
             }
+        }
+        stage('Check docker-compose version') {
             steps {
                 withEnv(['PATH+EXTRA=/usr/local/bin']) {
                     sh 'docker-compose --version'
