@@ -1,5 +1,8 @@
 pipeline {
     agent any 
+    environment {
+        PATH = "/usr/local/bin:$PATH"  // Add the path to Docker Compose
+    }
     stages {
         stage('check version') {
             steps {
