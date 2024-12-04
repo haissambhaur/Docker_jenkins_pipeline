@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('check version') {
             steps {
-                sh 'docker-compose --version'
+                sh 'docker --version'
             }
         }
     }
