@@ -1,10 +1,11 @@
 pipeline {
     agent any 
     stages {
-        stage('check version') {
+        stage('Check docker-compose version') {
             steps {
-                sh 'docker --version'
-                sh 'docker-compose --version'
+                withEnv(['PATH+EXTRA=/usr/local/bin']) {
+                    sh 'docker-compose --version'
+                }
             }
         }
     }
