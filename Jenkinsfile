@@ -6,6 +6,7 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'cd Travelling_Managment/'
+                sh 'pwd'
             }
         }
         stage('Check docker-compose version') {
