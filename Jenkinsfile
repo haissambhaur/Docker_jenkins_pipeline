@@ -5,7 +5,7 @@ pipeline {
             steps{
                 sh 'pwd'
                 sh 'ls -la'
-                sh 'cd /var/lib/jenkins/workspace/Docker_pipeline/Travelling_Managment'
+                sh '#!/bin/bash\ncd Travelling_Managment'
                 sh 'pwd'
             }
         }
