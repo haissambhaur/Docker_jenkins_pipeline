@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'docker:latest' // This image includes Docker
-            args '-e DOCKER_HOST=tcp://localhost:2375'// Mount Docker socket
+            args '-e DOCKER_HOST=tcp://host.docker.internal:2375'// Mount Docker socket
         }
     }
     stages {
