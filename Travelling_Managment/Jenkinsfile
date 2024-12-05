@@ -1,19 +1,17 @@
 pipeline {
-    agent any 
+    agent {
+        docker { image 'docker:24.0.5-cli' } // Replace with the desired version
+    }
     stages {
-        stage('check path') {
-            steps{
-                sh 'pwd'
-                sh 'ls -la'
-            }
-        }
-        stage('Check docker-compose version') {
+        stage('Test Docker Compose') {
             steps {
-                withEnv(['PATH+EXTRA=/usr/local/bin']) {
-                    sh 'docker-compose --version'
-                    sh 'docker-compose build'
-                    sh 'docker-compose up'
-                }
+                sh '''
+                # Verify Docker CLI version
+                docker --version
+
+                # Verify Docker Compose version
+                docker-compose --version
+                '''
             }
         }
     }
