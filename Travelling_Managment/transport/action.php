@@ -1,5 +1,5 @@
 <?php 
-$MYSQL_HOST=getenv('MYSQL_HOST')
+$MYSQL_HOST=getenv('MYSQL_HOST');
 $con=mysqli_connect('mysql_server','root','root','transport');
 session_start();
 if (isset($_POST['alogin'])) {
