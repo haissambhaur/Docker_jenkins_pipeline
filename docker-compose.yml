@@ -2,8 +2,8 @@ version: '2.2'
 services:
   web:
     build:
-      context: .
-      dockerfile: ./Travelling_Managment/transport/dockerfile
+      context: ./Travelling_Managment/transport
+      dockerfile: dockerfile
     container_name: server
     volumes:
       - ./Travelling_Managment/transport:/var/www/html
