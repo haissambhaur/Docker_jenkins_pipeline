@@ -1,8 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'docker:24.0.5-cli' // This image includes Docker
-            args '-e DOCKER_HOST=tcp://host.docker.internal:2375'// Mount Docker socket
+             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
     stages {
