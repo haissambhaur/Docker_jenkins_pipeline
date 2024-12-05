@@ -1,6 +1,10 @@
 pipeline {
     agent {
-        docker { image 'docker:24.0.5-cli' } // Replace with the desired version
+        docker { 
+            image 'docker:24.0.5-cli'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        } // Replace with the desired version
+        
     }
     stages {
         stage('Test Docker Compose') {
