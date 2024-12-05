@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: ./Travelling_Managment/transport/dockerfile
     container_name: server
-    volumes:
-      - ./Travelling_Managment/transport:/var/www/html
+    # volumes:
+    #   - ./Travelling_Managment/transport:/var/www/html
     ports:
       - 80:80
     depends_on:
