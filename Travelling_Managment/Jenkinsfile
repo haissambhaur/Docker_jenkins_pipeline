@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Pull Images') {
             steps {
-                sh 'docker --version'
+                sh 'docker ps'
+                sh 'docker pull node:latest'
                 sh 'docker-compose --version'
             }
         }
