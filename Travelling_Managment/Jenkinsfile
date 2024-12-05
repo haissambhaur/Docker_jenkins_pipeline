@@ -1,21 +1,16 @@
 pipeline {
     agent {
-        docker { 
-            image 'docker:24.0.5-cli'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        } // Replace with the desired version
-        
+        docker {
+            image 'docker:dind'
+            args '--privileged'
+        }
     }
     stages {
-        stage('Test Docker Compose') {
+        stage('Setup Docker') {
             steps {
-                sh '''
-                # Verify Docker CLI version
-                docker --version
-
-                # Verify Docker Compose version
-                docker-compose --version
-                '''
+                sh 'dockerd & sleep 5' // Start Docker daemon
+                sh 'docker --version'
+                sh 'docker ps'
             }
         }
     }
