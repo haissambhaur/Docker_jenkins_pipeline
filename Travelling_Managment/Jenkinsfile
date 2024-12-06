@@ -8,8 +8,20 @@ pipeline {
         }
         stage('Closing and Cleaning Last Run'){
             steps{
-                sh 'sudo docker-compose down'
-                sh 'sudo docker volume rm docker_pipeline_db_data'
+                script {
+                    // Check if 'server' and 'mysql_server' services are running
+                    def servicesRunning = sh(script: "sudo docker ps --filter name=server --filter name=mysql_server -q", returnStdout: true).trim()
+
+                    // If the services are found, the output will contain their IDs
+                    if (servicesRunning) {
+                        echo "Found running services: ${servicesRunning}"
+                        // Run commands to stop the services and remove the volume
+                        sh 'sudo docker-compose down'
+                        sh 'sudo docker volume rm docker_pipeline_db_data'
+                    } else {
+                        echo "No matching services found. Skipping cleanup."
+                    }
+                }
             }
         }
         stage('Running the new DockerCompose'){
