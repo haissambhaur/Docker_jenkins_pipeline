@@ -24,7 +24,7 @@ services:
       - 3306:3306
     volumes:
       - db_data:/var/lib/mysql
-      - /var/jenkins_home/workspace/Docker_pipeline/Travelling_Managment/db_init:/docker-entrypoint-initdb.d
+      - E:\CodeUpNow\docker\examples\proj2\Travelling_Managment\db_init:/docker-entrypoint-initdb.d
 
 volumes:
   db_data:
